@@ -30,6 +30,14 @@ def stop():
 
 
 
+def reset():
+    global stopwatch
+    stopwatch = 0
+    timer.stop()
+    print "reset test"
+
+
+
 # define event handler for timer with 0.1 sec interval
 def tick():
     global stopwatch
@@ -54,6 +62,7 @@ timer = simplegui.create_timer(interval, tick)
 frame.set_draw_handler(draw_handler)
 start = frame.add_button("Start", start, 100)
 stop = frame.add_button("Stop", stop, 100)
+reset = frame.add_button("Reset", reset, 100)
 
 
 
