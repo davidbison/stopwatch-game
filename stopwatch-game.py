@@ -19,12 +19,14 @@ def format(t):
 
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def start():
-    pass
+    timer.start()
+    print "start test"
 
 
 
 def stop():
-    pass
+    timer.stop()
+    print "stop test"
 
 
 
