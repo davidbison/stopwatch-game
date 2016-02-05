@@ -1,6 +1,10 @@
 # Convert time as integer to A:BC.D
 def format(t):
-  pass
+  # Set state of stopwatch at start and reset
+  milliseconds = 0
+  seconds = 0
+  minutes = 0
+
   # Split into minutes, seconds, and milliseconds
 
 
@@ -8,9 +12,16 @@ def format(t):
 
 
   # Return composite string
-
-
-
+  if minutes == 0 and seconds == 0 and milliseconds == 0:
+      return "0:00.0"
+  elif minutes == 0 and seconds == 0:
+      return "0:00." + milliseconds_str
+  elif minutes == 0 and seconds < 10:
+      return "0:0" + seconds_str + "." + milliseconds_str
+  elif minutes == 0:
+      return "0:" + seconds_str + "." + milliseconds_str
+  else:
+      return minutes_str + ":" + seconds_str + "." + milliseconds_str
 
 
 
