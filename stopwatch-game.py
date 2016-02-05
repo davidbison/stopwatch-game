@@ -68,4 +68,3 @@ reset = frame.add_button("Reset", reset, 100)
 
 # start frame
 frame.start()
-timer.start()
