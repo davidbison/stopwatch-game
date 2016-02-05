@@ -1,5 +1,10 @@
 # template for "Stopwatch: The Game"
 
+
+import simplegui
+
+
+
 # define global variables
 
 
@@ -18,9 +23,10 @@ def format(t):
 
 
 # create frame
-
+frame = simplegui.create_frame("Stopwatch Game", 300, 200)
 
 # register event handlers
 
 
 # start frame
+frame.start()
