@@ -25,7 +25,7 @@ def format(t):
 # define event handler for timer with 0.1 sec interval
 def timer_handler():
     global incrementer
-    incrementer += 0.1
+    incrementer += 1
     print incrementer
 
 
