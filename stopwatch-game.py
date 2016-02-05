@@ -6,7 +6,7 @@ import simplegui
 width = 300
 height = 200
 interval = 100
-incrementer = 0
+stopwatch = 0
 
 
 
@@ -24,14 +24,14 @@ def format(t):
 
 # define event handler for timer with 0.1 sec interval
 def timer_handler():
-    global incrementer
-    incrementer += 1
-    print incrementer
+    global stopwatch
+    stopwatch += 1
 
 
 
 # define draw handler
-
+def draw_handler(canvas):
+    canvas.draw_text(str(stopwatch), [125, 100], 36, "orange")
 
 
 
@@ -42,6 +42,7 @@ frame = simplegui.create_frame("Stopwatch Game", width, height)
 
 # register event handlers
 timer = simplegui.create_timer(interval, timer_handler)
+frame.set_draw_handler(draw_handler)
 
 
 
