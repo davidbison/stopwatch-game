@@ -18,14 +18,21 @@ def format(t):
 
 
 # define event handlers for buttons; "Start", "Stop", "Reset"
+def start():
+    pass
 
+
+
+def stop():
+    pass
 
 
 
 # define event handler for timer with 0.1 sec interval
-def timer_handler():
+def tick():
     global stopwatch
     stopwatch += 1
+    print stopwatch
 
 
 
@@ -41,8 +48,10 @@ frame = simplegui.create_frame("Stopwatch Game", width, height)
 
 
 # register event handlers
-timer = simplegui.create_timer(interval, timer_handler)
+timer = simplegui.create_timer(interval, tick)
 frame.set_draw_handler(draw_handler)
+start = frame.add_button("Start", start, 100)
+stop = frame.add_button("Stop", stop, 100)
 
 
 
