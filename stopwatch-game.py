@@ -6,6 +6,7 @@ import simplegui
 width = 300
 height = 200
 interval = 100
+incrementer = 0
 
 
 
@@ -23,7 +24,10 @@ def format(t):
 
 # define event handler for timer with 0.1 sec interval
 def timer_handler():
-    print interval
+    global incrementer
+    incrementer += 0.1
+    print incrementer
+
 
 
 # define draw handler
