@@ -8,9 +8,12 @@ def format(t):
   # Split into minutes, seconds, and milliseconds
   if t < 600:
     milliseconds += (t % 10)
+  if t < 6000 and t > 9:
+    seconds += (t / 10)
 
   # Convert to strings
   milliseconds_str = str(milliseconds)
+  seconds_str = str(seconds)
 
   # Return composite string
   if minutes == 0 and seconds == 0 and milliseconds == 0:
@@ -33,11 +36,11 @@ def format(t):
 
 print format(0)
 print format(7)
-# print format(17)
-# print format(60)
-# print format(63)
-# print format(214)
-# print format(599)
+print format(17)
+print format(60)
+print format(63)
+print format(214)
+print format(599)
 # print format(600)
 # print format(602)
 # print format(667)
