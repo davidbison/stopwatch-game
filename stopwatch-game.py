@@ -9,12 +9,14 @@ interval = 100
 stopwatch = 0
 reflex_test_total = 0
 reflex_test_success = 0
+milliseconds = 0
 
 
 
 # define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 def format(t):
+  global milliseconds
   # Split into minutes, seconds, and milliseconds
   minutes = t / 600
   seconds = (t - minutes * 600) / 10
@@ -42,17 +44,20 @@ def start():
 
 
 def stop():
-    global reflex_test_total
+    global reflex_test_total, reflex_test_success, milliseconds
     reflex_test_total += 1
     timer.stop()
+    if milliseconds == 0:
+      reflex_test_success += 1
     print "stop test"
 
 
 
 def reset():
-    global stopwatch, reflex_test_total
+    global stopwatch, reflex_test_total, reflex_test_success
     stopwatch = 0
     reflex_test_total = 0
+    reflex_test_success = 0
     timer.stop()
     print "reset test"
 
