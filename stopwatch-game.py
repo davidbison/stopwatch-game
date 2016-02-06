@@ -42,7 +42,6 @@ def start():
   global ticking
     timer.start()
     ticking = True
-    print "start test"
 
 
 
@@ -54,7 +53,6 @@ def stop():
     if milliseconds == 0:
       reflex_test_success += 1
   ticking = False
-  print "stop test"
 
 
 
@@ -65,7 +63,6 @@ def reset():
   reflex_test_success = 0
   ticking = False
   timer.stop()
-  print "reset test"
 
 
 
@@ -73,7 +70,6 @@ def reset():
 def tick():
   global stopwatch
   stopwatch += 1
-  print stopwatch
 
 
 
