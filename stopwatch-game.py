@@ -1,8 +1,10 @@
+# Stopwatch Reflex Game
+
 import simplegui
 
 
 
-# define global variables
+# Define global variables
 width = 300
 height = 200
 interval = 100
@@ -14,7 +16,7 @@ ticking = False
 
 
 
-# define helper function format that converts time
+# Helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 def format(t):
   global milliseconds
@@ -37,59 +39,55 @@ def format(t):
 
 
 
-# define event handlers for buttons; "Start", "Stop", "Reset"
+# Event handlers for Start, Stop, and Reset buttons
 def start():
   global ticking
     timer.start()
     ticking = True
-    print "start test"
 
 
 
 def stop():
-    global reflex_test_total, reflex_test_success, milliseconds, ticking
-    timer.stop()
-    if ticking:
-      reflex_test_total += 1
-      if milliseconds == 0:
-        reflex_test_success += 1
-    ticking = False
-    print "stop test"
+  global reflex_test_total, reflex_test_success, milliseconds, ticking
+  timer.stop()
+  if ticking:
+    reflex_test_total += 1
+    if milliseconds == 0:
+      reflex_test_success += 1
+  ticking = False
 
 
 
 def reset():
-    global stopwatch, reflex_test_total, reflex_test_success, ticking
-    stopwatch = 0
-    reflex_test_total = 0
-    reflex_test_success = 0
-    ticking = False
-    timer.stop()
-    print "reset test"
+  global stopwatch, reflex_test_total, reflex_test_success, ticking
+  stopwatch = 0
+  reflex_test_total = 0
+  reflex_test_success = 0
+  ticking = False
+  timer.stop()
 
 
 
-# define event handler for timer with 0.1 sec interval
+# Event handler for timer with 0.1 sec interval
 def tick():
-    global stopwatch
-    stopwatch += 1
-    print stopwatch
+  global stopwatch
+  stopwatch += 1
 
 
 
-# define draw handler
+# Define draw handler
 def draw_handler(canvas):
-    canvas.draw_text(format(stopwatch), [125, 100], 36, "orange")
-    canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [200, 25], 25, "orange")
+  canvas.draw_text(format(stopwatch), [(width/3), (height/2)], 36, "orange")
+  canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [(width-50), 30], 25, "orange")
 
 
 
-# create frame
+# Create frame
 frame = simplegui.create_frame("Stopwatch Game", width, height)
 
 
 
-# register event handlers
+# Register event handlers
 timer = simplegui.create_timer(interval, tick)
 frame.set_draw_handler(draw_handler)
 start = frame.add_button("Start", start, 100)
@@ -98,5 +96,5 @@ reset = frame.add_button("Reset", reset, 100)
 
 
 
-# start frame
+# Start frame
 frame.start()
