@@ -42,8 +42,8 @@ def format(t):
 # Event handlers for Start, Stop, and Reset buttons
 def start():
   global ticking
-    timer.start()
-    ticking = True
+  timer.start()
+  ticking = True
 
 
 
