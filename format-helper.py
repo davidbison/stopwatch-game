@@ -15,10 +15,7 @@ def format(t):
     seconds_str = "0" + seconds_str
 
   # Return composite string
-  if minutes > 9:
-    return "Go outside and play."
-  else:
-    return minutes_str + ":" + seconds_str + "." + milliseconds_str
+  return minutes_str + ":" + seconds_str + "." + milliseconds_str
 
 
 
