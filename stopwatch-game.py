@@ -47,40 +47,40 @@ def start():
 
 
 def stop():
-    global reflex_test_total, reflex_test_success, milliseconds, ticking
-    timer.stop()
-    if ticking:
-      reflex_test_total += 1
-      if milliseconds == 0:
-        reflex_test_success += 1
-    ticking = False
-    print "stop test"
+  global reflex_test_total, reflex_test_success, milliseconds, ticking
+  timer.stop()
+  if ticking:
+    reflex_test_total += 1
+    if milliseconds == 0:
+      reflex_test_success += 1
+  ticking = False
+  print "stop test"
 
 
 
 def reset():
-    global stopwatch, reflex_test_total, reflex_test_success, ticking
-    stopwatch = 0
-    reflex_test_total = 0
-    reflex_test_success = 0
-    ticking = False
-    timer.stop()
-    print "reset test"
+  global stopwatch, reflex_test_total, reflex_test_success, ticking
+  stopwatch = 0
+  reflex_test_total = 0
+  reflex_test_success = 0
+  ticking = False
+  timer.stop()
+  print "reset test"
 
 
 
 # define event handler for timer with 0.1 sec interval
 def tick():
-    global stopwatch
-    stopwatch += 1
-    print stopwatch
+  global stopwatch
+  stopwatch += 1
+  print stopwatch
 
 
 
 # define draw handler
 def draw_handler(canvas):
-    canvas.draw_text(format(stopwatch), [125, 100], 36, "orange")
-    canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [200, 25], 25, "orange")
+  canvas.draw_text(format(stopwatch), [125, 100], 36, "orange")
+  canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [200, 25], 25, "orange")
 
 
 
