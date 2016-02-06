@@ -7,13 +7,30 @@ width = 300
 height = 200
 interval = 100
 stopwatch = 0
+reflex_test_total = 0
+reflex_test_success = 0
 
 
 
 # define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 def format(t):
-    pass
+  # Split into minutes, seconds, and milliseconds
+  minutes = t / 600
+  seconds = (t - minutes * 600) / 10
+  milliseconds = (t - minutes * 600) % 10
+
+  # Convert to strings
+  milliseconds_str = str(milliseconds)
+  seconds_str = str(seconds)
+  minutes_str = str(minutes)
+
+  # Account for padding if seconds is less than 10
+  if seconds < 10:
+    seconds_str = "0" + seconds_str
+
+  # Return composite string
+  return minutes_str + ":" + seconds_str + "." + milliseconds_str
 
 
 
@@ -48,7 +65,8 @@ def tick():
 
 # define draw handler
 def draw_handler(canvas):
-    canvas.draw_text(str(stopwatch), [125, 100], 36, "orange")
+    canvas.draw_text(format(stopwatch), [125, 100], 36, "orange")
+    canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [200, 25], 25, "orange")
 
 
 
