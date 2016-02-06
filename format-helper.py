@@ -15,7 +15,10 @@ def format(t):
     seconds_str = "0" + seconds_str
 
   # Return composite string
-  return minutes_str + ":" + seconds_str + "." + milliseconds_str
+  if minutes > 9:
+    return "Go outside and play."
+  else:
+    return minutes_str + ":" + seconds_str + "." + milliseconds_str
 
 
 
@@ -37,6 +40,7 @@ print format(667) == "1:06.7"
 print format(1325) == "2:12.5"
 print format(4567) == "7:36.7"
 print format(5999) == "9:59.9"
+print format(6000) == "Go outside and play."
 
 
 
