@@ -2,7 +2,7 @@
 def format(t):
   # Split into minutes, seconds, and milliseconds
   minutes = t / 600
-  seconds = ((t - (minutes * 600)) / 10)
+  seconds = (t - minutes * 600) / 10
   milliseconds = (t - minutes * 600) % 10
 
   # Convert to strings
