@@ -10,6 +10,7 @@ stopwatch = 0
 reflex_test_total = 0
 reflex_test_success = 0
 milliseconds = 0
+ticking = False
 
 
 
@@ -38,26 +39,31 @@ def format(t):
 
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def start():
+  global ticking
     timer.start()
+    ticking = True
     print "start test"
 
 
 
 def stop():
-    global reflex_test_total, reflex_test_success, milliseconds
-    reflex_test_total += 1
+    global reflex_test_total, reflex_test_success, milliseconds, ticking
     timer.stop()
-    if milliseconds == 0:
-      reflex_test_success += 1
+    if ticking:
+      reflex_test_total += 1
+      if milliseconds == 0:
+        reflex_test_success += 1
+    ticking = False
     print "stop test"
 
 
 
 def reset():
-    global stopwatch, reflex_test_total, reflex_test_success
+    global stopwatch, reflex_test_total, reflex_test_success, ticking
     stopwatch = 0
     reflex_test_total = 0
     reflex_test_success = 0
+    ticking = False
     timer.stop()
     print "reset test"
 
