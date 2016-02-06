@@ -9,12 +9,15 @@ interval = 100
 stopwatch = 0
 reflex_test_total = 0
 reflex_test_success = 0
+milliseconds = 0
+ticking = False
 
 
 
 # define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 def format(t):
+  global milliseconds
   # Split into minutes, seconds, and milliseconds
   minutes = t / 600
   seconds = (t - minutes * 600) / 10
@@ -36,20 +39,31 @@ def format(t):
 
 # define event handlers for buttons; "Start", "Stop", "Reset"
 def start():
+  global ticking
     timer.start()
+    ticking = True
     print "start test"
 
 
 
 def stop():
+    global reflex_test_total, reflex_test_success, milliseconds, ticking
     timer.stop()
+    if ticking:
+      reflex_test_total += 1
+      if milliseconds == 0:
+        reflex_test_success += 1
+    ticking = False
     print "stop test"
 
 
 
 def reset():
-    global stopwatch
+    global stopwatch, reflex_test_total, reflex_test_success, ticking
     stopwatch = 0
+    reflex_test_total = 0
+    reflex_test_success = 0
+    ticking = False
     timer.stop()
     print "reset test"
 
