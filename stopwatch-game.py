@@ -77,8 +77,8 @@ def tick():
 
 # Define draw handler
 def draw_handler(canvas):
-  canvas.draw_text(format(stopwatch), [125, 100], 36, "orange")
-  canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [200, 25], 25, "orange")
+  canvas.draw_text(format(stopwatch), [(width/3), (height/2)], 36, "orange")
+  canvas.draw_text(str(reflex_test_success) + "/" + str(reflex_test_total), [(width-50), 30], 25, "orange")
 
 
 
