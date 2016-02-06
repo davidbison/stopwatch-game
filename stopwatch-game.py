@@ -42,14 +42,17 @@ def start():
 
 
 def stop():
+    global reflex_test_total
+    reflex_test_total += 1
     timer.stop()
     print "stop test"
 
 
 
 def reset():
-    global stopwatch
+    global stopwatch, reflex_test_total
     stopwatch = 0
+    reflex_test_total = 0
     timer.stop()
     print "reset test"
 
