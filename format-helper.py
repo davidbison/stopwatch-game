@@ -37,7 +37,6 @@ print format(667) == "1:06.7"
 print format(1325) == "2:12.5"
 print format(4567) == "7:36.7"
 print format(5999) == "9:59.9"
-print format(6000) == "Go outside and play."
 
 
 
